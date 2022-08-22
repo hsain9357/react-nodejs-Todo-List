@@ -1,0 +1,60 @@
+header.header {
+  height: 7rem;
+  width: 100%;
+  position: relative;
+}
+
+.header div.logo {
+  position: absolute;
+  left: 0;
+}
+.header nav.nav {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 50%;
+}
+.header nav.nav ul.navbar-nav {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.header nav.nav ul.navbar-nav li.nav-item {
+}
+.header nav.nav ul.navbar-nav li.nav-item a.nav-link {
+  font-family: var(--text-font);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 60px;
+  color: #676dff;
+  transition: 0.3s;
+}
+.header nav.nav ul.navbar-nav li.nav-item a.nav-link:hover {
+}
+.header nav.nav ul.navbar-nav li.nav-item a.nav-link.login {
+  color: #ffffff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 7rem;
+  text-align: center;
+  justify-content: center;
+  padding: 0.2rem;
+}
+.header nav.nav ul.navbar-nav li.nav-item a.nav-link {
+}
+.header nav.nav ul.navbar-nav li.nav-item a.nav-link.login span {
+  position: absolute;
+  width: 4rem;
+  height: 0.4rem;
+  border-radius: 8px;
+  background: #2e36ff;
+  top: 4.8rem;
+  transition: 0.3s;
+}
+.header nav.nav ul.navbar-nav li.nav-item a.nav-link.login:hover span {
+  width: 6rem;
+}
