@@ -1,25 +1,26 @@
+import { ReactSVG } from "react-svg";
 import "./Header.css";
 import Logo from "../../asssets/R.svg";
 const Header = () => {
   return (
     <header className="header">
       <div className="logo">
-        <img src={Logo} alt="" />
+        <ReactSVG src={Logo} />
       </div>
       <nav className="nav">
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <a href="#" className="nav-link">
+        <ul className="navbar_nav">
+          <li className="nav_item">
+            <a href="#" className="nav_link">
               Contact
             </a>
           </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link">
+          <li className="nav_item">
+            <a href="#" className="nav_link">
               About
             </a>
           </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link login">
+          <li className="nav_item">
+            <a href="#" className="nav_link login">
               Login <span></span>
             </a>
           </li>

@@ -7,6 +7,7 @@ header.header {
 .header div.logo {
   position: absolute;
   left: 0;
+  width: 5.6rem;
 }
 .header nav.nav {
   position: absolute;
@@ -14,27 +15,22 @@ header.header {
   height: 100%;
   width: 50%;
 }
-.header nav.nav ul.navbar-nav {
+.header nav.nav ul.navbar_nav {
   height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-.header nav.nav ul.navbar-nav li.nav-item {
-}
-.header nav.nav ul.navbar-nav li.nav-item a.nav-link {
+.header nav.nav ul.navbar_nav li.nav_item a.nav_link {
   font-family: var(--text-font);
   font-style: normal;
   font-weight: 600;
   font-size: 2rem;
   line-height: 60px;
-  color: #676dff;
-  transition: 0.3s;
+  color: var(--text-primary);
 }
-.header nav.nav ul.navbar-nav li.nav-item a.nav-link:hover {
-}
-.header nav.nav ul.navbar-nav li.nav-item a.nav-link.login {
+.header nav.nav ul.navbar_nav li.nav_item a.nav_link.login {
   color: #ffffff;
   position: relative;
   display: flex;
@@ -44,9 +40,7 @@ header.header {
   justify-content: center;
   padding: 0.2rem;
 }
-.header nav.nav ul.navbar-nav li.nav-item a.nav-link {
-}
-.header nav.nav ul.navbar-nav li.nav-item a.nav-link.login span {
+.header nav.nav ul.navbar_nav li.nav_item a.nav_link.login span {
   position: absolute;
   width: 4rem;
   height: 0.4rem;
@@ -55,6 +49,6 @@ header.header {
   top: 4.8rem;
   transition: 0.3s;
 }
-.header nav.nav ul.navbar-nav li.nav-item a.nav-link.login:hover span {
+.header nav.nav ul.navbar_nav li.nav_item a.nav_link.login:hover span {
   width: 6rem;
 }

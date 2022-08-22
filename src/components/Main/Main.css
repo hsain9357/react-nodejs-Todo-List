@@ -1,0 +1,123 @@
+main {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+main .title_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: var(--text-font);
+}
+main .title_container * {
+  font-family: var(--text-font);
+}
+main .title_container h1.available_missions {
+  margin-top: 7rem;
+  font-size: 2.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+}
+main .title_container .dates_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+main .title_container .dates_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 1rem;
+}
+main .title_container .dates_container div {
+  font-weight: 600;
+  font-size: 2rem;
+  padding: 0.7rem 3rem;
+  background: #fff;
+  border-radius: 20px;
+}
+.card {
+  min-width: 29.9rem;
+  min-height: 19.6rem;
+  border-radius: 3rem;
+  position: relative;
+  background: #ffffff60;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2rem;
+}
+.card button.dropdown_toggler {
+  position: absolute;
+  right: 1.9rem;
+  border: none;
+  background: none;
+}
+
+.card ul.dropdown_menu {
+  position: absolute;
+  min-height: 10rem;
+  min-width: 6rem;
+  right: 1rem;
+  top: 5rem;
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  background: white;
+  z-index: 1;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+.card ul.dropdown_menu.active {
+  display: flex;
+}
+.card ul.dropdown_menu li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+.card ul.dropdown_menu li button {
+  border: none;
+  background: none;
+}
+
+.card h2.card_header {
+  font-size: 2rem;
+  font-weight: 600;
+}
+.card p.card_body {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin: 1rem 0;
+  opacity: 0.5;
+}
+.card .date_container {
+  background: white;
+  border-radius: 1rem;
+  width: 10rem;
+  position: absolute;
+  bottom: 2rem;
+  padding: 0.7rem 1rem;
+  text-align: center;
+}
+.card .date_container .month {
+  font-family: var(--text-font);
+  font-weight: 700;
+}
+.card .date_container .hours {
+  font-family: var(--text-font);
+  margin-left: 0.3rem;
+  font-weight: 700;
+  color: #0021f5;
+}

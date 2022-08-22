@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Livvic&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Livvic:wght@400;500;600&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -22,4 +22,5 @@ body {
   background: -moz-linear-gradient(180deg, #f8f9fe 0%, #b3c0f9 100%);
   background-attachment: fixed;
   position: relative;
+  padding: 1rem 3rem;
 }

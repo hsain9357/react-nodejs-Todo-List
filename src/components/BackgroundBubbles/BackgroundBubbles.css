@@ -1,0 +1,63 @@
+.background_container {
+  z-index: -1;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+.bubble {
+  display: inline-block;
+  position: absolute;
+  animation: tilt-n-move-shaking 1s linear infinite;
+}
+
+.bubble.a {
+  top: -66px;
+  right: -10px;
+  animation-direction: reverse;
+  animation-duration: 2.4s;
+}
+.bubble.b {
+  top: 90px;
+  left: 10px;
+  animation-duration: 1.4s;
+}
+.bubble.c {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation-direction: reverse;
+  animation-duration: 1.9s;
+}
+.bubble.d {
+  bottom: -30px;
+  left: -150px;
+  animation-direction: reverse;
+}
+.bubble.d circle {
+  fill: #5539a7;
+}
+
+.bubble.e {
+  top: 70%;
+  right: -120px;
+}
+.bubble.e circle {
+  fill: #5539a7;
+}
+@keyframes tilt-n-move-shaking {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(5px, 5px) rotate(5deg);
+  }
+  50% {
+    transform: translate(0, 0) rotate(0eg);
+  }
+  75% {
+    transform: translate(-5px, 5px) rotate(-5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
