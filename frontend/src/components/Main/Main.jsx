@@ -2,31 +2,35 @@ import RemoveIconSrc from "../../asssets/Remove.png";
 import HideIconSrc from "../../asssets/Hide.png";
 import DoneIconSrc from "../../asssets/Done.png";
 import DropdownToggleIconSrc from "../../asssets/MenuToggleIcon.png";
+import Header from "../Header/Header.jsx";
 import add_icon_src from "../../asssets/addButton.svg";
 import { useState } from "react";
 import "./Main.css";
 const Main = () => {
   return (
-    <main>
-      <section className="title_container">
-        <h1 className="available_missions">
-          You have <span>x</span> misstions <br />
-          for today
-        </h1>
-        <div className="dates_container">
-          <div className="months">Jr</div>
-          <div className="days">3d</div>
-        </div>
-        <section className="cards_section">
-          <div className="cards_container">
-            <Card />
+    <>
+      <Header />
+      <main>
+        <section className="title_container">
+          <h1 className="available_missions">
+            You have <span>x</span> misstions <br />
+            for today
+          </h1>
+          <div className="dates_container">
+            <div className="months">Jr</div>
+            <div className="days">3d</div>
           </div>
+          <section className="cards_section">
+            <div className="cards_container">
+              <Card />
+            </div>
+          </section>
         </section>
-      </section>
-      <button className="add_one">
-        <img src={add_icon_src} alt="add new task" />
-      </button>
-    </main>
+        <button className="add_one">
+          <img src={add_icon_src} alt="add new task" />
+        </button>
+      </main>
+    </>
   );
 };
 

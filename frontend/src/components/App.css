@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Livvic:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Livvic:wght@400;500;600;700;900&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,8 +6,24 @@
   text-decoration: none;
   list-style: none;
 }
+*:focus {
+  outline: 2px var(--text-primary) solid;
+}
+::-moz-selection {
+  /* Code for Firefox */
+  color: white;
+  background: var(--text-primary);
+}
+
+::selection {
+  color: white;
+  background: var(--text-primary);
+}
 :root {
+  /*--text-primary: #676dff;*/
+
   --text-primary: #676dff;
+  --text-primary-600: #2847ff;
   --text-gray: #8f8f8f;
   --text-font: "livvic", sans-serif;
 }
