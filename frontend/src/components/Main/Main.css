@@ -28,12 +28,6 @@ main .title_container .dates_container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-main .title_container .dates_container {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin: 2rem 1rem;
 }
 main .title_container .dates_container div {
@@ -42,6 +36,9 @@ main .title_container .dates_container div {
   padding: 0.7rem 3rem;
   background: #fff;
   border-radius: 20px;
+}
+main .title_container .dates_container div:hover {
+  background: var(--text-primary);
 }
 .card {
   min-width: 29.9rem;
@@ -60,6 +57,15 @@ main .title_container .dates_container div {
   right: 1.9rem;
   border: none;
   background: none;
+  transition: 2s;
+}
+.card button.dropdown_toggler img {
+  width: 3.4rem;
+  height: 1rem;
+  pointer-events: none;
+}
+.card button.dropdown_toggler:hover img {
+  width: 4rem;
 }
 
 .card ul.dropdown_menu {
@@ -86,6 +92,9 @@ main .title_container .dates_container div {
   gap: 0.8rem;
   flex-wrap: nowrap;
   width: 100%;
+}
+.card ul.dropdown_menu li:hover button {
+  color: var(--text-primary);
 }
 .card ul.dropdown_menu li button {
   border: none;
@@ -120,4 +129,16 @@ main .title_container .dates_container div {
   margin-left: 0.3rem;
   font-weight: 700;
   color: #0021f5;
+}
+
+button.add_one {
+  position: fixed;
+  background: none;
+  border: none;
+  right: 3rem;
+  bottom: 3rem;
+  transition: 1s;
+}
+button.add_one:hover {
+  transform: rotate(90deg);
 }

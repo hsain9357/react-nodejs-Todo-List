@@ -2,6 +2,7 @@ import RemoveIconSrc from "../../asssets/Remove.png";
 import HideIconSrc from "../../asssets/Hide.png";
 import DoneIconSrc from "../../asssets/Done.png";
 import DropdownToggleIconSrc from "../../asssets/MenuToggleIcon.png";
+import add_icon_src from "../../asssets/addButton.svg";
 import { useState } from "react";
 import "./Main.css";
 const Main = () => {
@@ -16,10 +17,15 @@ const Main = () => {
           <div className="months">Jr</div>
           <div className="days">3d</div>
         </div>
-        <div className="cards_container">
-          <Card />
-        </div>
+        <section className="cards_section">
+          <div className="cards_container">
+            <Card />
+          </div>
+        </section>
       </section>
+      <button className="add_one">
+        <img src={add_icon_src} alt="add new task" />
+      </button>
     </main>
   );
 };
