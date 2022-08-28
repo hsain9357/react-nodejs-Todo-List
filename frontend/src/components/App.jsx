@@ -24,6 +24,7 @@ const App = () => {
           <Route path="main" element={<Main />} />
         </Route>
       </Routes>
+      ;
     </>
   );
 };

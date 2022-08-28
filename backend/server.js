@@ -3,13 +3,23 @@ import cors from "cors";
 import dotenv from "dotenv";
 import http from "http";
 import login_handler_route from "./routes/Login.js";
+import cookieParser from "cookie-parser";
+import bodyParser from "body-parser";
+
 dotenv.config();
 const app = express();
 const server = http.Server(app);
 
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:8080"],
+    credentials: true,
+    preflightContinue: true,
+    optionsSuccessStatus: 204,
+  })
+);
 app.use(
   bodyParser.urlencoded({
     extended: true,
