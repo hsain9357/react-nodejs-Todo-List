@@ -3,11 +3,18 @@ header.header {
   width: 100%;
   position: relative;
 }
-
-.header div.logo {
-  position: absolute;
-  left: 0;
+header.header a.logo {
   width: 5.6rem;
+  height: 5.6rem;
+  position: absolute;
+  left: 2rem;
+}
+
+.header a.logo .logo_img svg {
+  position: relative;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 .header nav.nav {
   position: absolute;
@@ -15,40 +22,75 @@ header.header {
   height: 100%;
   width: 50%;
 }
-.header nav.nav ul.navbar_nav {
-  height: 100%;
+.avatar {
+  position: absolute;
+  border: none;
+  background: none;
+  right: 2rem;
+  height: 6rem;
+  width: 6rem;
+}
+.avatar:focus {
+  outline-color: var(--text-primary);
+}
+.avatar .img {
   width: 100%;
-  display: flex;
+  background: white;
+  border-radius: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+.avatar ul.drop_down {
+  position: relative;
+  z-index: 3;
+  right: 6rem;
+  top: 1rem;
+  width: 13rem;
+  border-radius: 1rem;
+  height: 20rem;
+  display: none;
   align-items: center;
   justify-content: space-around;
+  flex-direction: column;
+  background: white;
+  padding: 1rem;
+  gap: 1rem;
+  animation: opacityAnimate 0.4s ease-out;
 }
-.header nav.nav ul.navbar_nav li.nav_item a.nav_link {
-  font-family: var(--text-font);
-  font-style: normal;
-  font-weight: 600;
-  font-size: 2rem;
-  line-height: 60px;
-  color: var(--text-primary);
+@keyframes opacityAnimate {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-.header nav.nav ul.navbar_nav li.nav_item a.nav_link.login {
-  color: #ffffff;
-  position: relative;
+.avatar ul.drop_down.active {
   display: flex;
-  align-items: center;
-  width: 7rem;
+}
+.avatar ul.drop_down * {
+  font-family: var(--text-font);
+}
+.avatar ul.drop_down p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: capitalize;
   text-align: center;
-  justify-content: center;
-  padding: 0.2rem;
 }
-.header nav.nav ul.navbar_nav li.nav_item a.nav_link.login span {
-  position: absolute;
-  width: 4rem;
-  height: 0.4rem;
-  border-radius: 8px;
-  background: #2e36ff;
-  top: 4.8rem;
-  transition: 0.3s;
+
+.avatar ul.drop_down li {
+  width: 100%;
 }
-.header nav.nav ul.navbar_nav li.nav_item a.nav_link.login:hover span {
-  width: 6rem;
+.avatar ul.drop_down li button {
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding: 1rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  background: var(--text-primary);
+  color: white;
+  width: 100%;
+}
+.avatar ul.drop_down li button:hover {
+  color: #000;
 }

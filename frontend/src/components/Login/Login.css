@@ -1,67 +1,31 @@
-body {
-  padding: 0;
-}
-.container {
+.login .form_container {
   display: flex;
-  justify-content: space-between;
-  position: relative;
-  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
-}
-.logo svg {
-  position: absolute;
-  height: 4.5rem;
-}
-.container .introduction_container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-}
-.container article.introduction_container h1.introduction_header {
-  margin: 1rem;
-  color: black;
-  font-family: var(--text-font);
-  font-style: normal;
-  font-weight: 700;
-  font-size: 2.3rem;
-  line-height: 2.9rem;
-}
-.container article.introduction_container h1.introduction_header > span {
-  color: var(--text-primary-600);
-}
-.container article.introduction_container .guy_working svg {
-  width: 34rem;
-  height: 34rem;
-}
-
-.container .form_container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 70%;
+  min-height: 102vh;
   background: white;
   text-align: center;
-  border-radius: 9rem 0 0 9rem;
+  position: absolute;
+
   gap: 5rem;
-  padding: 2rem;
+  padding: 0rem;
 }
-.container .form_container p.create_account {
+.login .form_container p.login_p {
   font-family: var(--text-font);
   color: var(--text-gray);
   font-weight: 500;
   font-size: 3rem;
   margin-top: 3rem;
 }
-.container .form_container div.social_media_btns_con {
+.login .form_container div.social_media_btns_con {
   display: flex;
   text-align: center;
   gap: 0 7rem;
   justify-content: center;
   width: 100%;
 }
-.container .form_container div.social_media_btns_con button {
+.login .form_container div.social_media_btns_con button {
   background: none;
   display: flex;
   align-items: center;
@@ -71,27 +35,27 @@ body {
   border: 4px #f1f1f0f0 solid;
   border-radius: 0.5rem;
 }
-.container .form_container div.social_media_btns_con button:nth-of-type(1) img {
+.login .form_container div.social_media_btns_con button:nth-of-type(1) img {
   width: 40px;
   height: 40px;
 }
-.container .form_container div.social_media_btns_con button:hover p {
+.login .form_container div.social_media_btns_con button:hover p {
   color: var(--text-primary);
 }
-.container .form_container div.social_media_btns_con button img {
+.login .form_container div.social_media_btns_con button img {
   width: 50px;
   height: 50px;
 }
-.container .form_container div.social_media_btns_con button p {
+.login .form_container div.social_media_btns_con button p {
   font-size: 1.2rem;
   font-weight: 400;
   letter-spacing: 0.1rem;
 }
-.container .form_container span.or {
+.login .form_container span.or {
   font-size: 2rem;
   color: gray;
 }
-.container form {
+.login form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -100,7 +64,7 @@ body {
   background: white;
   padding: 0 8rem;
 }
-.container form input {
+.login form input {
   border: none;
   border-bottom: 3px solid #dadada;
   display: flex;
@@ -110,10 +74,10 @@ body {
   font-size: 1.7rem;
   transition: 0.3s;
 }
-.container form input:hover {
+.login form input:hover {
   border-color: var(--text-primary);
 }
-.container form input:focus {
+.login form input:focus {
   outline: none;
   animation: animateBorder 0.7s linear;
 }
@@ -128,7 +92,7 @@ body {
     margin: 0;
   }
 }
-.container form button.submit_btn {
+.login form button.submit_btn {
   border: none;
   margin: 0 auto;
   width: 80%;
@@ -140,25 +104,14 @@ body {
   color: white;
   transition: 0.4s;
 }
-.container form button.submit_btn:hover {
+.login form button.submit_btn:hover {
   width: 84%;
 }
-.container h1.already_have_one {
+.login h1.not_have_one {
   color: var(--text-gray);
-  margin-top: -1rem;
+  background: white;
 }
-.container h1.already_have_one a {
+.login h1.not_have_one a {
   color: var(--text-primary);
   text-decoration: underline;
-}
-@media only screen and (max-width: 900px) {
-  .container {
-    flex-direction: column;
-  }
-  .container .form_container {
-    width: 100%;
-    border-radius: 0;
-    gap: 4rem;
-    padding: 2rem;
-  }
 }

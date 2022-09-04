@@ -5,6 +5,7 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding: 2rem;
 }
 main .title_container {
   width: 100%;
@@ -18,30 +19,24 @@ main .title_container * {
   font-family: var(--text-font);
 }
 main .title_container h1.available_missions {
-  margin-top: 7rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
   font-size: 2.9rem;
   font-weight: 600;
   letter-spacing: 0.1rem;
 }
-main .title_container .dates_container {
+main .title_container h1.available_missions span {
+  color: var(--text-primary);
+}
+.cards_container {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin: 2rem 1rem;
-}
-main .title_container .dates_container div {
-  font-weight: 600;
-  font-size: 2rem;
-  padding: 0.7rem 3rem;
-  background: #fff;
-  border-radius: 20px;
-}
-main .title_container .dates_container div:hover {
-  background: var(--text-primary);
+  justify-content: center;
+  flex-wrap: wrap;
 }
 .card {
-  min-width: 29.9rem;
+  width: 29.9rem;
   min-height: 19.6rem;
   border-radius: 3rem;
   position: relative;
@@ -49,8 +44,9 @@ main .title_container .dates_container div:hover {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   padding: 2rem;
+  margin: 1rem;
 }
 .card button.dropdown_toggler {
   position: absolute;
@@ -96,9 +92,16 @@ main .title_container .dates_container div:hover {
 .card ul.dropdown_menu li:hover button {
   color: var(--text-primary);
 }
-.card ul.dropdown_menu li button {
+.card ul.dropdown_menu li button,
+.card ul.dropdown_menu li a {
   border: none;
+  font-size: 1.3rem;
+  color: gray;
   background: none;
+}
+.card ul.dropdown_menu li img {
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
 .card h2.card_header {
@@ -106,6 +109,9 @@ main .title_container .dates_container div:hover {
   font-weight: 600;
 }
 .card p.card_body {
+  word-wrap: break-word;
+  width: 100%;
+  line-height: 1.9rem;
   font-size: 1.4rem;
   font-weight: 400;
   margin: 1rem 0;
@@ -115,7 +121,6 @@ main .title_container .dates_container div:hover {
   background: white;
   border-radius: 1rem;
   width: 10rem;
-  position: absolute;
   bottom: 2rem;
   padding: 0.7rem 1rem;
   text-align: center;
@@ -131,7 +136,7 @@ main .title_container .dates_container div:hover {
   color: #0021f5;
 }
 
-button.add_one {
+.add_one {
   position: fixed;
   background: none;
   border: none;
@@ -139,6 +144,6 @@ button.add_one {
   bottom: 3rem;
   transition: 1s;
 }
-button.add_one:hover {
+.add_one:hover {
   transform: rotate(90deg);
 }

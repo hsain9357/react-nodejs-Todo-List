@@ -1,0 +1,80 @@
+.Task {
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+.Task form.task_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4rem;
+  width: 100%;
+  min-height: 100%;
+  padding: 0 8rem;
+}
+.Task form.task_form input {
+  background: transparent;
+  border-color: gray;
+  color: black;
+  font-family: var(--text-font);
+  font-weight: 600;
+  border-width: 4px;
+}
+.Task form.task_form input:focus {
+  outline: none;
+  animation: animateBorder 0.7s linear;
+}
+.Task form.task_form input::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+
+  color: #9193ac;
+}
+.Task form.task_form input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #9193ac;
+  opacity: 1;
+}
+.Task form.task_form input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #9193ac;
+  opacity: 1;
+}
+.Task form.task_form input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #9193ac;
+}
+.Task form.task_form input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #9193ac;
+}
+
+.Task form.task_form input::placeholder {
+  /* Most modern browsers support this now. */
+  color: #9193ac;
+}
+@keyframes animateBorder {
+  0% {
+    margin: 0;
+  }
+  50% {
+    margin: 0 2rem;
+  }
+  100% {
+    margin: 0;
+  }
+}
+.Task form.task_form button {
+  border: none;
+  margin: 3rem auto;
+  width: 50%;
+  height: 5rem;
+  border-radius: 1rem;
+  background: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  transition: 0.4s;
+}
+.Task form.task_form button:hover {
+  width: 84%;
+}
