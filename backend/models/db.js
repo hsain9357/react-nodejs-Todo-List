@@ -1,7 +1,7 @@
 // databases
 import mongoose from "mongoose";
-import {config} from 'dotenv'
-config()
+import { config } from "dotenv";
+config();
 
 const connection = mongoose.connection;
 const Schema = mongoose.Schema;
@@ -12,17 +12,16 @@ connection.on("err", (err) => console.log({ mongoose_err_connection: err }));
 
 const User = new Schema(
   {
-    first_name: {
+    firstName: {
       type: String,
       required: true,
       maxlength: 20,
-      minlength: 2,
+      minlength: 1,
     },
-    last_name: {
+    lastName: {
       type: String,
-      required: true,
       maxlength: 20,
-      minlength: 2,
+      minlength: 1,
     },
     img: {
       type: String,
@@ -31,13 +30,32 @@ const User = new Schema(
 
     email: {
       type: String,
-      required: true,
       maxlength: 40,
       minlength: 6,
     },
-    login_method: String,
+    facebookID: String,
+    password: { type: String, maxlength: 70 },
+    loginMethod: String,
+  },
+  { timestamps: true }
+);
+const Tasks = new Schema(
+  {
+    user: {
+      type: mongoose.Types.ObjectId,
+      ref: "users",
+    },
+    tasks: [
+      {
+        taskTitle: String,
+        taskDetails: String,
+        taskCase: String,
+        taskTime: Number,
+      },
+    ],
   },
   { timestamps: true }
 );
 const user_schema = mongoose.model("users", User);
-export { user_schema };
+const task_schema = mongoose.model("tasks", Tasks);
+export { user_schema, task_schema };

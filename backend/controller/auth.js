@@ -9,9 +9,11 @@ const authenticateUser = async (req, res, next) => {
   let idToken = req.cookies["login"];
   try {
     const decodedMessage = jwt.verify(idToken, secretkey);
-    await user_schema.findOne({
+    const user = await user_schema.findOne({
       email: decodedMessage,
     });
+    if (!user) return res.status(401).send("No user ");
+    req.user = user;
     next();
   } catch (e) {
     console.log(e);
