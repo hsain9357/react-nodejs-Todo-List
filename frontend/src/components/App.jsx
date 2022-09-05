@@ -35,10 +35,11 @@ const App = () => {
       <BackgroundBubbles />
       <Routes>
         <Route path="/" element={<MangeNavigation />}>
-          <Route path="Signup" element={<Signup />} />
+          <Route path="signup" element={<Signup />} />
           <Route path="login" element={<Login />} />
           <Route path="main" element={<Main />} />
           <Route path="task" element={<Task />} />
+          <Route path="*" element={<div>not found</div>} />
         </Route>
       </Routes>
       ;
@@ -80,7 +81,7 @@ export function getCookie(cname) {
       return c.substring(name.length, c.length);
     }
   }
-  return "";
+  return null;
 }
 
 export default App;

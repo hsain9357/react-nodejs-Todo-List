@@ -1,6 +1,6 @@
 //third parties
 import { ReactSVG } from "react-svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 
 //local
@@ -12,6 +12,7 @@ import unknown_person_src from "../../asssets/unknown.png";
 const Header = () => {
   const inputRef = useRef();
   const [dropDown, setDropDown] = useState(false);
+  const navigate = useNavigate();
   //this just for resend request for the server to ask about image
   const [isThereImg, setIsThereImg] = useState(false);
   const [UserInfo, setUserInfo] = useState({});
@@ -79,12 +80,21 @@ const Header = () => {
           </li>
 
           <li className="option">
-            <button>Logout</button>
+            <button onClick={() => logout(navigate)}>Logout</button>
           </li>
         </ul>
       </div>
     </header>
   );
 };
+
+function logout(navigate) {
+  document.cookie.split(";").forEach(function (c) {
+    document.cookie = c
+      .replace(/^ +/, "")
+      .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+  });
+  navigate("/signup");
+}
 
 export default Header;
