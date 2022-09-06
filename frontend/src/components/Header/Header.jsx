@@ -1,31 +1,34 @@
 //third parties
 import { ReactSVG } from "react-svg";
 import { Link, useNavigate } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 
 //local
 import "./Header.css";
 import Logo from "../../asssets/R.svg";
 import { getUserInfo, replaceImg } from "./headerAPI.js";
 import unknown_person_src from "../../asssets/unknown.png";
+import { Context } from "../App.jsx";
 
 const Header = () => {
   const inputRef = useRef();
   const [dropDown, setDropDown] = useState(false);
   const navigate = useNavigate();
   //this just for resend request for the server to ask about image
-  const [isThereImg, setIsThereImg] = useState(false);
+  const [update, setUpdate] = useState(false);
   const [UserInfo, setUserInfo] = useState({});
+  const { shouldHeaderAppear } = useContext(Context);
 
   function toogleDropDown() {
     setDropDown((p) => !p);
   }
-
   useEffect(() => {
-    getUserInfo().then((res) => {
-      setUserInfo(res.data);
-    });
-  }, [isThereImg]);
+    if (shouldHeaderAppear) {
+      getUserInfo().then((res) => {
+        setUserInfo(res.data);
+      });
+    }
+  });
 
   function handleChangePic(e) {
     const file = e.target.files[0];
@@ -42,7 +45,7 @@ const Header = () => {
         const res = await replaceImg(reader.result);
         if (res.data.success) {
           alert("your picuture has been added");
-          setIsThereImg((p) => !p);
+          setUpdate((p) => !p);
         }
       };
 
@@ -51,7 +54,7 @@ const Header = () => {
   }
 
   return (
-    <header className="header">
+    <header className={`header ${shouldHeaderAppear && "active"}`}>
       <Link className="logo" to="/main" role="button" tabIndex="0">
         <ReactSVG src={Logo} className="logo_img" />
       </Link>

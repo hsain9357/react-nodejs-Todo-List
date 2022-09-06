@@ -1,14 +1,14 @@
 //third parties
-import { useState, useRef, useEffect } from "react";
-import { useLocation ,useNavigate} from "react-router-dom";
+import { useState, useRef, useEffect, useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 //local
 import "./Task.css";
-import Header from "../Header/Header.jsx";
 import { addTask, updateTask } from "./TaskAPI.js";
+import { Context } from "../App.jsx";
+
 const Task = () => {
   const { search } = useLocation();
-    const navigate = useNavigate()
   const id = new URLSearchParams(search).get("id");
   const details = new URLSearchParams(search).get("details");
   const title = new URLSearchParams(search).get("title");
@@ -16,20 +16,26 @@ const Task = () => {
   const DATE = `${date.getFullYear()}-${formatDate(
     date.getMonth()
   )}-${formatDate(date.getUTCDate())}`;
-
   const time = `${formatDate(date.getHours())}:${formatDate(
     date.getMinutes(),
     true
   )}`;
 
   const [data, setData] = useState({
-    taskTitle: title && title,
-    taskDetails: details && details,
+    taskTitle: title ? title : "",
+    taskDetails: details ? details : "",
     taskHours: time,
     taskDays: DATE,
   });
-  const DaysRef = useRef(),
-    HoursRef = useRef();
+  const navigate = useNavigate();
+  const DaysRef = useRef();
+  const HoursRef = useRef();
+  const { setShouldHeaderAppear } = useContext(Context);
+
+  useEffect(() => {
+    setShouldHeaderAppear(true);
+  }, []);
+
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
@@ -49,7 +55,7 @@ const Task = () => {
           setData({ taskTitle: "", taskDetails: "" });
 
           alert("updated Successfuly");
-            navigate('/task',{replace:true})
+          navigate("/task", { replace: true });
         }
       } else {
         const res = await addTask({
@@ -69,7 +75,6 @@ const Task = () => {
 
   return (
     <>
-      <Header />
       <div className="Task">
         <form className="task_form" onSubmit={handleSubmit}>
           <input

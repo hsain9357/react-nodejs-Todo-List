@@ -1,18 +1,19 @@
 //third parties
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { GoogleLogin } from "react-google-login";
-
-//asssets
-import google_src from "../../asssets/google.png";
 
 //local
 import { emailLogin } from "./LoginAPI.js";
+import { Context } from "../App.jsx";
 import "./Login.css";
 const CLIENT_ID =
   "390130223308-nkhtdqj3h68tp3ejnvqickugre42t8hg.apps.googleusercontent.com";
 
 const Login = () => {
+  useEffect(() => {
+    setShouldHeaderAppear(false);
+  }, []);
   return (
     <div className="login">
       <Form_container />
@@ -36,9 +37,7 @@ function Form_container() {
     try {
       e.preventDefault();
       const res = await emailLogin(data);
-      if (res.data.success) {
-        navigate("/main", { replace: true });
-      }
+      if (res.data.success) navigate("/main", { replace: true });
     } catch (error) {
       if (
         error.response &&
@@ -52,8 +51,10 @@ function Form_container() {
   };
   const responseG = async (response) => {
     try {
-      await responseGoogle(response);
-      navigate("/main", { replace: true });
+      const res = await responseGoogle(response);
+      if (res.data.success) {
+        navigate("/main", { replace: true });
+      }
     } catch (error) {
       console.log(error.message);
     }
@@ -68,16 +69,6 @@ function Form_container() {
           onFailure={responseG}
           cookiePolicy={"single_host_origin"}
           buttonText="signin with google"
-          render={(renderProps) => (
-            <button
-              className="google_btn"
-              onClick={renderProps.onClick}
-              disabled={renderProps.disabled}
-            >
-              <img src={google_src} alt="signin with google " />
-              <p>signin with google</p>
-            </button>
-          )}
         />
       </div>
       <span className="or">-or-</span>

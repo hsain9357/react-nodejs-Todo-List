@@ -1,11 +1,16 @@
 header.header {
+  margin-top: 1rem;
   height: 7rem;
   width: 100%;
   position: relative;
+  display: none;
+}
+header.header.active {
+  display: block;
 }
 header.header a.logo {
-  width: 5.6rem;
-  height: 5.6rem;
+  width: 4.6rem;
+  height:4.6rem;
   position: absolute;
   left: 2rem;
 }

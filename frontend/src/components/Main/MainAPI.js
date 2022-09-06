@@ -8,3 +8,15 @@ export const getTasks = () => {
     crossorigin: true,
   });
 };
+export const deleteTheTask = (id) => {
+  const url = `${hostName}/task/delete`;
+  return axios.post(
+    url,
+    { id },
+    {
+      withCredentials: true,
+      "Access-Control-Allow-Origin": true,
+      crossorigin: true,
+    }
+  );
+};

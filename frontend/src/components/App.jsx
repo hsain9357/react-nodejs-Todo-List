@@ -1,5 +1,5 @@
 //third parties
-import React, { useEffect } from "react";
+import React, { useEffect, createContext, useState, useMemo } from "react";
 import { gapi } from "gapi-script";
 import {
   Routes,
@@ -15,12 +15,13 @@ import Main from "./Main/Main.jsx";
 import BackgroundBubbles from "./BackgroundBubbles/BackgroundBubbles.jsx";
 import Login from "./Login/Login.jsx";
 import Task from "./Task/Task.jsx";
+import Header from "./Header/Header.jsx";
 import "./App.css";
 
+export const Context = createContext();
 const App = () => {
   const CLIENT_ID =
     "390130223308-nkhtdqj3h68tp3ejnvqickugre42t8hg.apps.googleusercontent.com";
-
   useEffect(() => {
     function start() {
       gapi.client.init({
@@ -30,18 +31,28 @@ const App = () => {
     }
     gapi.load("client:auth2", start);
   }, []);
+  const [shouldHeaderAppear, setShouldHeaderAppear] = useState(false);
+
+  const value = useMemo(
+    () => ({ shouldHeaderAppear, setShouldHeaderAppear }),
+    [shouldHeaderAppear]
+  );
+
   return (
     <>
-      <BackgroundBubbles />
-      <Routes>
-        <Route path="/" element={<MangeNavigation />}>
-          <Route path="signup" element={<Signup />} />
-          <Route path="login" element={<Login />} />
-          <Route path="main" element={<Main />} />
-          <Route path="task" element={<Task />} />
-          <Route path="*" element={<div>not found</div>} />
-        </Route>
-      </Routes>
+      <Context.Provider value={value}>
+        <BackgroundBubbles />
+        <Header shouldAppear={false} />
+        <Routes>
+          <Route path="/" element={<MangeNavigation />}>
+            <Route path="signup" element={<Signup />} />
+            <Route path="login" element={<Login />} />
+            <Route path="main" element={<Main />} />
+            <Route path="task" element={<Task />} />
+            <Route path="*" element={<div>Not Found</div>} />
+          </Route>
+        </Routes>
+      </Context.Provider>
       ;
     </>
   );

@@ -1,24 +1,26 @@
 //third parties
 import { GoogleLogin } from "react-google-login";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ReactSVG } from "react-svg";
 
 //asssets
-import google_src from "../../asssets/google.png";
-import logo_src from "../../asssets/R.svg";
 import guy_working_src from "../../asssets/guy_loking_to_a_computer.svg";
 
 //local
 import { responseGoogle, emailSignUp } from "./SignInAPI.js";
+import { Context } from "../App.jsx";
 import "./signIn.css";
 const CLIENT_ID =
   "390130223308-nkhtdqj3h68tp3ejnvqickugre42t8hg.apps.googleusercontent.com";
 
 const Signup = () => {
+  const { setShouldHeaderAppear } = useContext(Context);
+  useEffect(() => {
+    setShouldHeaderAppear(false);
+  }, []);
   return (
     <div className="container">
-      <ReactSVG src={logo_src} className="logo" />
       <Introduction />
       <Form_container />
     </div>

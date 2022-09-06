@@ -1,27 +1,31 @@
 //third parties
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 //asssets
 import RemoveIconSrc from "../../asssets/Remove.png";
 import EditIconSrc from "../../asssets/edit.png";
 import DropdownToggleIconSrc from "../../asssets/MenuToggleIcon.png";
 import add_icon_src from "../../asssets/addButton.svg";
+import { Context } from "../App.jsx";
 
 //local
-import Header from "../Header/Header.jsx";
-import { getTasks } from "./MainAPI.js";
+import { getTasks, deleteTheTask } from "./MainAPI.js";
 import "./Main.css";
 
 const Main = () => {
   const [tasks, setTasks] = useState([]);
+  const [update, setUpdate] = useState(false);
+  const { setShouldHeaderAppear } = useContext(Context);
   useEffect(() => {
     getTasks().then((res) => {
       setTasks(res.data.tasks);
     });
+  }, [update]);
+  useEffect(() => {
+    setShouldHeaderAppear(true);
   }, []);
   return (
     <>
-      <Header />
       <main>
         <section className="title_container">
           <h1 className="available_missions">
@@ -49,6 +53,7 @@ const Main = () => {
                     monthAndDay={`${month} ${day}`}
                     header={item.taskTitle}
                     details={item.taskDetails}
+                    setUpdate={setUpdate}
                   />
                 );
               })}
@@ -66,11 +71,18 @@ const Main = () => {
 function formatHoursTo12(date) {
   return date.getUTCHours() % 12 || 12;
 }
-const Card = ({ header, details, monthAndDay, hours, id }) => {
+const Card = ({ header, details, monthAndDay, hours, id, setUpdate }) => {
   const [isDropdownOpened, setIsDropdownOpened] = useState(false);
   function toggleDropdown() {
     setIsDropdownOpened((prev) => !prev);
   }
+  const deleteTask = async (id) => {
+    const res = await deleteTheTask(id);
+    if (res.data.success) {
+      setUpdate((p) => !p);
+      alert("deleted successfuly");
+    }
+  };
   return (
     <article className="card">
       <button className="dropdown_toggler" onClick={toggleDropdown}>
@@ -88,7 +100,11 @@ const Card = ({ header, details, monthAndDay, hours, id }) => {
             edit
           </Link>
         </li>
-        <li>
+        <li
+          onClick={() => {
+            deleteTask(id);
+          }}
+        >
           <img src={RemoveIconSrc} alt="delete the task" />
           <button>delete</button>
         </li>
